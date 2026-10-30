@@ -2,7 +2,7 @@
 //  彩田公园 · 热力图图层（纯密度，不渲染业务明细）
 // ============================================================================
 import * as THREE from 'three';
-import { groundHeight, surfaceAt, PATHS, pathDist, distToPolyline } from './terrain.js?v=3';
+import { groundHeight, surfaceAt, PATHS, pathDist, distToPolyline } from './terrain.js?v=4';
 
 const W = 300, D = 250;                 // 世界范围
 const X0 = -150, Z0 = -115;
@@ -147,7 +147,9 @@ export function createHeatLayer(spots, rampKey, profile) {
     // 归一化
     let mx = 0;
     for (let i = 0; i < field.length; i++) if (landMask[i] && field[i] > mx) mx = field[i];
-    const norm = Math.max(mx * k * 0.42, 1e-5);
+    // 固定基准：按日峰值系数归一化，使各时段的密度呈绝对量级差异
+    const peakK = Math.max.apply(null, profile);
+    const norm = Math.max(mx * peakK * 0.42, 1e-5);
 
     const data = img.data;
     for (let j = 0; j < CH; j++) {

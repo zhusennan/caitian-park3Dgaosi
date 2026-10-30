@@ -6,16 +6,16 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
-import { buildParkScene, buildWater, buildTerrainBase, buildBuildingBase } from './park.js?v=3';
-import { createCameraLayer } from './cameras.js?v=3';
-import { createPipeLayer } from './pipes.js?v=3';
-import { createHeatLayer } from './heat.js?v=3';
-import { createUI } from './ui.js?v=3';
+import { buildParkScene, buildWater, buildTerrainBase, buildBuildingBase } from './park.js?v=4';
+import { createCameraLayer } from './cameras.js?v=4';
+import { createPipeLayer } from './pipes.js?v=4';
+import { createHeatLayer } from './heat.js?v=4';
+import { createUI } from './ui.js?v=4';
 import {
   CAMERAS, PIPES, PEOPLE_SPOTS, EVENT_SPOTS, HOUR_PROFILE, EVENT_PROFILE,
   PRESETS, SCENE_LABELS, PIPE_TYPES
-} from './data.js?v=3';
-import { groundHeight, headingAt, PATHS, PARK } from './terrain.js?v=3';
+} from './data.js?v=4';
+import { groundHeight, headingAt, PATHS, PARK } from './terrain.js?v=4';
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));

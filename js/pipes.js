@@ -5,8 +5,8 @@ import * as THREE from 'three';
 import { Line2 } from 'three/addons/lines/Line2.js';
 import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { LineGeometry } from 'three/addons/lines/LineGeometry.js';
-import { groundHeight } from './terrain.js?v=3';
-import { PIPE_TYPES } from './data.js?v=3';
+import { groundHeight } from './terrain.js?v=4';
+import { PIPE_TYPES } from './data.js?v=4';
 
 function labelSprite(text, color) {
   const c = document.createElement('canvas');

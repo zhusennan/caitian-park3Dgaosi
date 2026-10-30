@@ -1,9 +1,9 @@
 // ============================================================================
 //  彩田公园 · 界面层（详情面板 / 平面索引 / 图例 / 时间轴 / 监控画面模拟）
 // ============================================================================
-import { CAMERAS, PIPES, PIPE_TYPES, RECON, EVENT_TYPES, HOUR_PROFILE, EVENT_PROFILE } from './data.js?v=3';
-import { PARK, LAKE, PATHS, ROADS, COURTS, PLAZAS, PARKING, BUILDINGS, groundHeight, lakeNorm } from './terrain.js?v=3';
-import { RAMPS } from './heat.js?v=3';
+import { CAMERAS, PIPES, PIPE_TYPES, RECON, EVENT_TYPES, HOUR_PROFILE, EVENT_PROFILE } from './data.js?v=4';
+import { PARK, LAKE, PATHS, ROADS, COURTS, PLAZAS, PARKING, BUILDINGS, groundHeight, lakeNorm } from './terrain.js?v=4';
+import { RAMPS } from './heat.js?v=4';
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));

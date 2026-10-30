@@ -9,9 +9,12 @@
 
 ```bash
 cd caitian-park-demo
-python3 -m http.server 4173
+python3 serve.py            # 默认 4173，禁用缓存，改完代码刷新即生效
 # 浏览器打开 http://127.0.0.1:4173/index.html
 ```
+
+> `serve.py` 只比 `python3 -m http.server` 多了一件事：强制 `Cache-Control: no-store`，
+> 避免浏览器缓存旧的 `js/*.js` 模块（模块用了 `?v=` 版本号，改代码后仍可能拿到旧文件）。
 
 > ⚠️ 必须通过 HTTP 服务打开。由于使用 ES Module + importmap，直接双击 `index.html`（file:// 协议）会被浏览器 CORS 策略拦截。
 
