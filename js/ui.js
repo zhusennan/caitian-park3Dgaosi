@@ -1,9 +1,9 @@
 // ============================================================================
 //  彩田公园 · 界面层（详情面板 / 平面索引 / 图例 / 时间轴 / 监控画面模拟）
 // ============================================================================
-import { CAMERAS, PIPES, PIPE_TYPES, RECON, EVENT_TYPES, HOUR_PROFILE, EVENT_PROFILE } from './data.js?v=4';
-import { PARK, LAKE, PATHS, ROADS, COURTS, PLAZAS, PARKING, BUILDINGS, groundHeight, lakeNorm } from './terrain.js?v=4';
-import { RAMPS } from './heat.js?v=4';
+import { CAMERAS, PIPES, PIPE_TYPES, RECON, EVENT_TYPES, HOUR_PROFILE, EVENT_PROFILE } from './data.js?v=5';
+import { PARK, LAKE, PATHS, ROADS, COURTS, PLAZAS, PARKING, BUILDINGS, groundHeight, lakeNorm } from './terrain.js?v=5';
+import { RAMPS } from './heat.js?v=5';
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
@@ -106,8 +106,9 @@ class FeedSim {
     g.globalAlpha = 1;
 
     // 时间戳 / 设备号
-    const d = new Date(2026, 9, 30, Math.floor(this.hour), Math.floor((this.hour % 1) * 60));
-    const ts = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(Math.floor(Math.random() * 60)).padStart(2, '0')}`;
+    // 实时画面使用真实系统时间，不随时间轴变化
+    const d = new Date();
+    const ts = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`;
     g.font = '11px monospace'; g.textAlign = 'left';
     g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(4, 26, 96, 14);
     g.fillStyle = 'rgba(255,255,255,.94)';
@@ -253,7 +254,8 @@ export function createUI(app) {
         <dt>投运时间</dt><dd>${cam.install}</dd>
         <dt>坐标</dt><dd>X ${cam.x.toFixed(1)} / Z ${cam.z.toFixed(1)}</dd>
       </dl>`;
-    const flowN = Math.round(HOUR_PROFILE[Math.floor(app.hour) % 24] * 900 * (cam.type === '球机' ? 1.2 : 0.9));
+    const realHour = new Date().getHours();
+    const flowN = Math.round(HOUR_PROFILE[realHour % 24] * 900 * (cam.type === '球机' ? 1.2 : 0.9));
     $('#videoStat').innerHTML =
       `<span>当前画面人流 <b>${flowN}</b></span>
        <span>今日事件 <b>${Math.round(flowN * 0.06)}</b></span>
@@ -280,7 +282,6 @@ export function createUI(app) {
     let bg = null;
     try { bg = app.captureCamView ? app.captureCamView(cam) : null; } catch (e) { bg = null; }
     videoFeed = new FeedSim($('#videoCanvas'), cam, $('#videoCanvas').width, $('#videoCanvas').height, bg);
-    videoFeed.setHour(app.hour);
     videoFeed.start();
   }
   function closeVideo() {

@@ -2,7 +2,7 @@
 //  彩田公园 · 监控摄像头图层（46 路）
 // ============================================================================
 import * as THREE from 'three';
-import { groundHeight } from './terrain.js?v=4';
+import { groundHeight } from './terrain.js?v=5';
 
 function numberTexture(n, selected = false) {
   const c = document.createElement('canvas');

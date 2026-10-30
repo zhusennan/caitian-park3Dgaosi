@@ -7,9 +7,9 @@ import {
   PARK, LAKE, WATER_Y, BUILDINGS, CITY, COURTS, PLAZAS, PARKING, PATHS, ROADS,
   groundHeight, baseHeight, lakeNorm, surfaceAt, pathDist, pointInRect,
   rng, clamp, lerp, smoothstep, fbm, hash2, valueNoise, samplePolyline, polylineLength
-} from './terrain.js?v=4';
-import { CAMERAS } from './data.js?v=4';
-import { headingAt } from './terrain.js?v=4';
+} from './terrain.js?v=5';
+import { CAMERAS } from './data.js?v=5';
+import { headingAt } from './terrain.js?v=5';
 
 // ---------------------------------------------------------------------------
 //  点云累加器

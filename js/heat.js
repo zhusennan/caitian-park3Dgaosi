@@ -2,7 +2,7 @@
 //  彩田公园 · 热力图图层（纯密度，不渲染业务明细）
 // ============================================================================
 import * as THREE from 'three';
-import { groundHeight, surfaceAt, PATHS, pathDist, distToPolyline } from './terrain.js?v=4';
+import { groundHeight, surfaceAt, PATHS, pathDist, distToPolyline } from './terrain.js?v=5';
 
 const W = 300, D = 250;                 // 世界范围
 const X0 = -150, Z0 = -115;

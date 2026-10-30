@@ -176,6 +176,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;heigh
 .list-item .d b{color:var(--text-2);font-weight:600}
 
 /* ---------- timeline ---------- */
+.timeline.hidden{display:none}
 .timeline{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:55;width:min(620px,52vw);
   display:flex;align-items:center;gap:12px;padding:9px 15px;border-radius:12px;
   background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(16px)}
