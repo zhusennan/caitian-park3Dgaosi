@@ -1,5 +1,8 @@
 # 彩田公园 · 三维实景数字孪生平台 Demo
 
+> **在线体验：** https://zhusennan.github.io/caitian-park3Dgaosi/
+> GitHub Pages 静态发布，打开即用，无需安装、无需联网加载依赖。
+
 面向客户演示的产品原型，覆盖《彩田公园需求对接》中 P0 / P1 / P2 全部需求点。
 纯前端实现（three.js + WebGL2），无需后端与网络，打开即用。
 
